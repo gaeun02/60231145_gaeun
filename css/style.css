@@ -1,0 +1,1639 @@
+/* Sulat Rizal 폰트 정의 */
+@font-face {
+  font-family: "Sulat Rizal";
+  src: url("../SulatRizal.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  background-color: #183437;
+  background-image: url("../paper-texture2.png");
+  background-size: 200%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-blend-mode: multiply;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* 외부 골드 프레임 이미지 적용 */
+.border-frame {
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
+  background-image: url("../frame.png");
+  background-size: 100% 100%; /* 가로 100%, 세로 비율 유지 */
+  background-position: center;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  box-sizing: border-box;
+  opacity: 87%;
+}
+
+.separator {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 0.5s; /* 0.5초 후에 페이드인 시작 */
+  opacity: 0;
+}
+
+.line1 {
+  width: 250px; /* 양쪽으로 배치할 라인의 길이 */
+  height: 0.6px;
+  background-color: #cdb258;
+  transform: translateX(-28px);
+}
+
+.line2 {
+  width: 250px; /* 양쪽으로 배치할 라인의 길이 */
+  height: 0.6px;
+  background-color: #cdb258;
+  transform: translateX(28px);
+}
+
+.diamond {
+  width: 30px;
+  height: 30px;
+  background-image: url("../diamond.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 50%; /* 부모의 세로 중앙 */
+  left: 50%; /* 부모의 가로 중앙 */
+  transform: translate(-50%, -50%); /* 완전한 중앙 정렬 */
+  z-index: 10;
+}
+
+.space {
+  margin-right: 5px; /* 원하는 여백 크기 */
+}
+
+/* 타이틀 기본 스타일 */
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 77px;
+  font-weight: bold;
+  margin-top: 1px;
+  margin-bottom: 5px;
+  letter-spacing: 5px;
+  position: relative;
+  opacity: 0; /* 초기 상태에서 이미지가 보이지 않도록 설정 */
+  animation: fadeIn 3s ease-in forwards;
+
+  /* 골드 텍스트 그라디언트 */
+  background: linear-gradient(
+    to right,
+    #a47a1e,
+    #d3a84c,
+    #d3a84c,
+    #e6be69,
+    #ffd87c,
+    #b58f3e,
+    #956d13
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+/* 텍스트 그림자 Glow 효과 */
+.title::after {
+  content: "VAN GOGH INSIDE"; /* 동일한 텍스트 */
+  position: absolute;
+  top: 15%; /* 텍스트 아래쪽으로 위치 */
+  left: 0;
+  transform: translateY(-11px); /* Y축 조정으로 텍스트와 가깝게 맞춤 */
+  width: 100%;
+  height: 100%;
+  color: transparent;
+  background: linear-gradient(
+    to right,
+    rgba(205, 178, 88, 0.8),
+    rgba(220, 174, 23, 0.69)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: blur(5px); /* Blur 값을 줄여 텍스트에 더 가깝게 */
+  opacity: 0.7; /* 최대 투명도로 선명하게 */
+  z-index: -99;
+}
+
+/* 빛나는 효과를 위한 스타일 */
+.shiny {
+  position: relative;
+  display: inline-block;
+}
+
+/* 텍스트 전체에 빛이 이동하는 효과 */
+.shiny::before {
+  content: "VAN GOGH INSIDE"; /* 타이틀과 동일한 텍스트 */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    65deg,
+    transparent 20%,
+    rgba(255, 255, 255, 0.2) 20%,
+    rgba(255, 255, 255, 0.3) 27%,
+    transparent 27%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  animation: flare 5s infinite linear;
+  z-index: 1;
+}
+
+/* 텍스트 위에 작은 반짝임 효과 */
+.inner-shiny::after,
+.inner-shiny::before {
+  animation: sparkle 5s infinite linear;
+  background: #fff;
+  border-radius: 100%;
+  box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff,
+    0 0 25px #fff, 0 0 30px #fff, 0 0 35px #fff;
+  content: "";
+  display: block;
+  height: 10px;
+  opacity: 0.7;
+  position: absolute;
+  width: 10px;
+}
+
+.inner-shiny::before {
+  animation-delay: 0.2s;
+  height: 7px;
+  left: 0.12em;
+  top: 0.8em;
+  width: 7px;
+}
+
+.inner-shiny::after {
+  top: 0.32em;
+  right: -5px;
+}
+
+/* 애니메이션 정의 */
+@keyframes flare {
+  0% {
+    background-position: -180px;
+  }
+  30% {
+    background-position: 500px;
+  }
+  100% {
+    background-position: 500px;
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 0.8;
+  }
+  60% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.subtitle-svg {
+  width: auto;
+  max-width: 277.74px;
+  height: 33px;
+  margin-top: 13px;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.cls-1 {
+  animation: dash 4s ease-in-out infinite;
+  animation-delay: 1.8s;
+}
+
+/* 하단 왼쪽 텍스트 스타일 */
+.footer-text-left {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100; /* 얇은 폰트 굵기 */
+  font-size: 15px; /* 텍스트 크기 조정 */
+  color: #cdb258; /* 폰트 색상 */
+  position: absolute;
+  bottom: 20px; /* 화면 하단에서의 거리 */
+  left: 30px; /* 화면 왼쪽 끝에서의 거리 */
+  line-height: 1.2; /* 줄 간격 */
+  text-align: left;
+  opacity: 0; /* 초기 상태에서 텍스트가 보이지 않도록 설정 */
+  animation: slideUp 1.5s ease-out forwards;
+  animation-delay: 3s; /* 1초 후에 슬라이드 업 시작 */
+}
+
+/* 하단 오른쪽 텍스트 스타일 */
+.footer-text-right {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100; /* 얇은 폰트 굵기 */
+  font-size: 20px; /* 텍스트 크기 조정 */
+  color: #cdb258; /* 폰트 색상 */
+  position: absolute;
+  bottom: 20px; /* 화면 하단에서의 거리 */
+  right: 30px; /* 화면 오른쪽 끝에서의 거리 */
+  text-align: right;
+  opacity: 0; /* 초기 상태에서 텍스트가 보이지 않도록 설정 */
+  animation: slideUp 1.5s ease-out forwards;
+  animation-delay: 3s; /* 1초 후에 슬라이드 업 시작 */
+}
+
+/* 슬라이드업 애니메이션 설정 */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* 아래쪽에서 시작 */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* 제자리로 슬라이드 */
+  }
+}
+
+/* 새 버튼 스타일 */
+.frame-btn {
+  margin-top: 20px;
+  display: inline-block;
+  padding: 13px 40px; /* 버튼을 얇고 길게 설정 */
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-decoration: none;
+  position: relative;
+  opacity: 0; /* 초기 상태에서 이미지가 보이지 않도록 설정 */
+  animation: slideUp 1.5s ease-out forwards;
+  animation-delay: 3s; /* 1초 후에 슬라이드 업 시작 */
+}
+
+.frame-btn__text {
+  color: #cdb258;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 300ms ease;
+  position: relative;
+}
+
+.frame-btn:hover .frame-btn__text {
+  color: white;
+}
+
+.frame-btn__solid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 10px;
+  background-color: #cdb258;
+  opacity: 0.2;
+  width: calc(100% - 20px);
+  height: calc(100% - 20px);
+  transform-origin: 50%;
+  transform: scale(0.85);
+  opacity: 0;
+  transition: 500ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.frame-btn:hover .frame-btn__solid {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.frame-btn__outline {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.frame-btn__outline--tall {
+  margin: 0 5px;
+  width: calc(100% - 10px);
+  height: 100%;
+  overflow: hidden;
+}
+
+.frame-btn__outline--flat {
+  margin: 5px 0;
+  height: calc(100% - 10px);
+  width: 100%;
+  overflow: hidden;
+}
+
+.frame-btn__line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+.frame-btn__line--tall::before,
+.frame-btn__line--tall::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0.8px;
+  height: 100%;
+  background-color: #cdb258;
+  opacity: 0.4;
+  transition: transform 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  transform: scaleY(0);
+}
+
+.frame-btn__line--flat::before,
+.frame-btn__line--flat::after {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 0.8px;
+  width: 100%;
+  background-color: #cdb258;
+  transition: transform 800ms cubic-bezier(0.165, 0.84, 0.44, 1);
+  transform-origin: center;
+  transform: scaleX(0);
+}
+
+.frame-btn:hover .frame-btn__line--tall::before,
+.frame-btn:hover .frame-btn__line--tall::after {
+  transform: scaleY(1);
+  transition: transform 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.frame-btn:hover .frame-btn__line--flat::before,
+.frame-btn:hover .frame-btn__line--flat::after {
+  transform: scaleX(1);
+  transition: transform 400ms cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.frame-btn__line--tall::before {
+  left: 0;
+}
+
+.frame-btn__line--tall::after {
+  right: 0;
+}
+
+.frame-btn__line--flat::before {
+  top: 0;
+}
+
+.frame-btn__line--flat::after {
+  bottom: 0;
+}
+
+.container {
+  display: flex;
+  width: 80%;
+  max-width: 1100px;
+  height: 60vh;
+  justify-content: space-between;
+  gap: 25px;
+  margin-top: 40px;
+  opacity: 0; /* 초기 상태에서 전체 컨테이너가 보이지 않도록 설정 */
+  animation: fadeIn 2s ease-in forwards;
+  animation-delay: 0.5s; /* 0.5초 후에 페이드인 시작 */
+}
+
+/* 페이드인 애니메이션 설정 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* starrynignt 작품 컨테이너 */
+.image-container {
+  flex: 1;
+  overflow: hidden;
+  height: 100%;
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  transform: scale(1);
+}
+
+.image-container img {
+  width: 100%; /* 전체 너비에 맞게 조정 */
+  height: 100%; /* 전체 높이에 맞게 조정 */
+  object-fit: cover; /* 이미지의 비율을 유지하며 컨테이너를 꽉 채움 */
+  object-position: center; /* 중앙에 정렬 */
+}
+
+/* 각 컨테이너 바깥에 얇은 골드 테두리 추가 */
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #d2ac47;
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+.starrynight-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.starrynight-bg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+.back-overlay {
+  position: absolute;
+  top: 15%; /* 수직 중앙 정렬 */
+  left: 20%; /* 수평 중앙 정렬 */
+  object-fit: contain;
+  z-index: 200s;
+  animation: background-glow 5s ease-in-out infinite alternate,
+    background-sway 8s ease-in-out infinite; /* 빛의 변화와 살짝 흔들림 */
+}
+
+@keyframes background-glow {
+  0%,
+  100% {
+    filter: brightness(0.9); /* 어두운 상태 */
+  }
+  50% {
+    filter: brightness(1.3); /* 밝은 상태 */
+  }
+}
+
+@keyframes background-sway {
+  0% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-1px); /* 더 위로 이동 */
+  }
+  50% {
+    transform: translateY(1px); /* 아래로 이동 */
+  }
+  75% {
+    transform: translateY(-1px); /* 위로 이동 */
+  }
+  100% {
+    transform: translateY(0px); /* 원래 위치 */
+  }
+}
+
+.tree-overlay {
+  position: absolute;
+  top: 5%; /* 수직 중앙 정렬 */
+  left: -30%; /* 수평 중앙 정렬 */
+  object-fit: contain;
+  z-index: 10000s;
+  animation: tree-sway 4s ease-in-out infinite; /* 나무 흔들림 애니메이션 */
+}
+
+@keyframes tree-sway {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(1deg); /* 오른쪽으로 더 많이 회전 */
+  }
+  50% {
+    transform: rotate(0deg); /* 원래 위치로 복귀 */
+  }
+  75% {
+    transform: rotate(-1deg); /* 왼쪽으로 더 많이 회전 */
+  }
+  100% {
+    transform: rotate(0deg); /* 원래 위치 */
+  }
+}
+
+/* 트리에 hover 진동 효과 */
+.tree-overlay:hover {
+  animation: tree-shake 0.8s infinite linear; /* 진동 애니메이션 */
+}
+
+/* 트리 진동 애니메이션 */
+@keyframes tree-shake {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(-1px, 1px) rotate(-1deg);
+  }
+  50% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  75% {
+    transform: translate(-1px, -1px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+.moon-overlay {
+  position: absolute;
+  top: 40%;
+  left: 60%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 99;
+  animation: moon-glow 3s ease-in-out infinite, rotate-slow 120s linear infinite;
+  transition: filter 0.3s ease; /* hover 전환을 위한 filter */
+}
+
+.moon-overlay:hover {
+  animation: moon-glow-hover 15s ease-in-out infinite, rotate-reverse 5s linear; /* 반대 방향 회전 */
+  filter: brightness(1.1); /* hover 시 더욱 빛남 */
+}
+
+/* Moon glow */
+@keyframes moon-glow {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(0.5);
+    filter: brightness(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(0.5);
+    filter: brightness(1.1);
+  }
+}
+
+/* Moon glow during hover */
+@keyframes moon-glow-hover {
+  0%,
+  100% {
+    filter: brightness(1.3);
+  }
+  50% {
+    filter: brightness(1.5);
+  }
+}
+
+/* Slow rotation for Moon (원래 회전) */
+@keyframes rotate-slow {
+  from {
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.5) rotate(360deg);
+  }
+}
+
+/* Reverse rotation for hover */
+@keyframes rotate-reverse {
+  from {
+    transform: translate(-50%, -50%) scale(0.5) rotate(360deg); /* 현재 위치에서 시작 */
+  }
+  to {
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg); /* 반대 방향으로 회전 */
+  }
+}
+
+/* Wave PNG들에 대한 애니메이션 설정 */
+.wave-overlay {
+  position: absolute;
+  top: -30%; /* 수직 중앙 정렬 */
+  left: 40%; /* 수평 중앙 정렬 */
+  transform: scale(0.8);
+  object-fit: contain;
+  z-index: -5;
+  animation: rotate-clockwise 120s linear infinite;
+  filter: brightness(0.9);
+}
+
+.wave2-overlay {
+  position: absolute;
+  top: 20%; /* 수직 중앙 정렬 */
+  left: 40%; /* 수평 중앙 정렬 */
+  transform: scale(1.5);
+  object-fit: contain;
+  z-index: -9;
+  animation: rotate-counterclockwise 135s linear infinite;
+  opacity: 0.9;
+  filter: brightness(0.9);
+}
+
+.wave3-overlay {
+  position: absolute;
+  top: 15%; /* 수직 중앙 정렬 */
+  left: -30%; /* 수평 중앙 정렬 */
+  transform: scale(0.75);
+  object-fit: contain;
+  z-index: -5;
+  animation: rotate-clockwise 145s linear infinite;
+  filter: brightness(0.9);
+}
+
+.wave4-overlay {
+  position: absolute;
+  top: -20%; /* 수직 중앙 정렬 */
+  left: -10%; /* 수평 중앙 정렬 */
+  transform: scale(1);
+  object-fit: contain;
+  z-index: -7;
+  animation: rotate-counterclockwise 140s linear infinite;
+  opacity: 0.85;
+  filter: brightness(0.9);
+}
+
+.wave5-overlay {
+  position: absolute;
+  top: -50%; /* 수직 중앙 정렬 */
+  left: -10%; /* 수평 중앙 정렬 */
+  transform: scale(0.75);
+  object-fit: contain;
+  z-index: -5;
+  animation: rotate-clockwise 130s linear infinite;
+  opacity: 0.95;
+  filter: brightness(0.9);
+}
+
+.wave6-overlay {
+  position: absolute;
+  top: -50%; /* 수직 중앙 정렬 */
+  left: -60%; /* 수평 중앙 정렬 */
+  transform: scale(0.95);
+  object-fit: contain;
+  z-index: -5;
+  animation: rotate-counterclockwise 125s linear infinite;
+  filter: brightness(0.9);
+}
+
+.wave7-overlay {
+  position: absolute;
+  top: 30%; /* 수직 중앙 정렬 */
+  left: -10%; /* 수평 중앙 정렬 */
+  transform: scale(0.45);
+  object-fit: contain;
+  z-index: -7;
+  animation: rotate-clockwise 135s linear infinite;
+  opacity: 0.85;
+  filter: brightness(0.9);
+}
+
+/* 회전 애니메이션 - 시계 방향 */
+@keyframes rotate-clockwise {
+  from {
+    transform: scale(var(--scale, 1)) rotate(0deg);
+  }
+  to {
+    transform: scale(var(--scale, 1)) rotate(360deg);
+  }
+}
+
+/* 회전 애니메이션 - 반시계 방향 */
+@keyframes rotate-counterclockwise {
+  from {
+    transform: scale(var(--scale, 1)) rotate(0deg);
+  }
+  to {
+    transform: scale(var(--scale, 1)) rotate(-360deg);
+  }
+}
+
+/* 각 별의 개별 초기 크기를 --initial-scale 변수로 지정 */
+.star-blue-overlay {
+  position: absolute;
+  top: -40%;
+  left: 20%;
+  --initial-scale: 0.5;
+  object-fit: contain;
+  z-index: 80;
+  animation: star-twinkle 5s ease-in-out infinite alternate;
+}
+
+.star-lightblue-overlay {
+  position: absolute;
+  top: -20%;
+  left: -50%;
+  --initial-scale: 1;
+  object-fit: contain;
+  z-index: -5;
+  animation: star-twinkle 4s ease-in-out infinite alternate;
+}
+
+.star-yellow-overlay {
+  position: absolute;
+  top: 8%;
+  left: 60%;
+  --initial-scale: 0.7;
+  object-fit: contain;
+  z-index: 80;
+  animation: star-twinkle 5.5s ease-in-out infinite alternate;
+}
+
+.star-white-overlay {
+  position: absolute;
+  top: -10%;
+  left: 40%;
+  --initial-scale: 0.1;
+  object-fit: contain;
+  z-index: 105;
+  animation: star-twinkle 6s ease-in-out infinite alternate;
+}
+
+.star-green-overlay {
+  position: absolute;
+  top: -27%;
+  left: 40%;
+  --initial-scale: 0.35;
+  object-fit: contain;
+  z-index: 100;
+  animation: star-twinkle 7s ease-in-out infinite alternate;
+}
+
+.star-bluegreen-overlay {
+  position: absolute;
+  top: 5%;
+  left: 28%;
+  --initial-scale: 0.3;
+  object-fit: contain;
+  z-index: 100;
+  animation: star-twinkle 8s ease-in-out infinite alternate;
+}
+
+.star-blue2-overlay {
+  position: absolute;
+  top: -5%;
+  left: -15%;
+  --initial-scale: 0.38;
+  object-fit: contain;
+  z-index: 95;
+  animation: star-twinkle 4.5s ease-in-out infinite alternate;
+}
+
+.star-white2-overlay {
+  position: absolute;
+  top: -40%;
+  left: -20%;
+  --initial-scale: 0.25;
+  object-fit: contain;
+  z-index: 1;
+  animation: star-twinkle 6.2s ease-in-out infinite alternate;
+}
+
+.star-lightblue2-overlay {
+  position: absolute;
+  top: 15%;
+  left: -8%;
+  --initial-scale: 0.28;
+  object-fit: contain;
+  z-index: 95;
+  animation: star-twinkle 5.8s ease-in-out infinite alternate;
+}
+
+.star-yellow2-overlay {
+  position: absolute;
+  top: -27%;
+  left: -9%;
+  --initial-scale: 0.1;
+  object-fit: contain;
+  z-index: 3;
+  filter: brightness(1.15);
+  animation: star-twinkle 7.5s ease-in-out infinite alternate;
+}
+
+.star-green2-overlay {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  --initial-scale: 0.1;
+  object-fit: contain;
+  z-index: 1;
+  animation: star-twinkle 7s ease-in-out infinite alternate;
+}
+
+.star-bluegreen2-overlay {
+  position: absolute;
+  top: 10%;
+  left: -23%;
+  --initial-scale: 0.09;
+  object-fit: contain;
+  z-index: 95;
+  animation: star-twinkle 8s ease-in-out infinite alternate;
+}
+
+/* 공통 hover 효과 */
+[class*="star-"] {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  transform: scale(var(--initial-scale, 1)); /* 각 요소의 기본 크기 */
+}
+
+[class*="star-"]:hover {
+  transform: scale(
+    calc(var(--initial-scale, 1) * 1.1)
+  ); /* 기본 크기의 1.1배로 확대 */
+  filter: brightness(1.3); /* hover 시 밝아짐 */
+}
+
+/* 반짝임 애니메이션 */
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.7;
+    filter: brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: brightness(1.2); /* 밝기를 더 강조하여 반짝임 효과 */
+  }
+}
+
+#root {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.night-star {
+  position: absolute;
+  width: 2px; /* 작은 크기의 별 */
+  height: 2px;
+  background-color: white;
+  opacity: 0;
+  animation: night-twinkle 3s ease-in-out infinite alternate;
+  filter: brightness(1.2);
+}
+
+@keyframes night-twinkle {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+    filter: brightness(1.3);
+  }
+}
+
+#shooting-stars {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.shooting-star {
+  position: absolute;
+  height: 2px;
+  width: 100px;
+  background: linear-gradient(-45deg, white, rgba(0, 0, 255, 0));
+  filter: drop-shadow(0 0 6px white);
+  animation: shooting-star-move 7s linear infinite;
+}
+
+@keyframes shooting-star-move {
+  from {
+    opacity: 0.8;
+    transform: translateY(0) rotate(120deg);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(300px) rotate(120deg);
+  }
+}
+
+/* 아몬드 오버레이 이미지들 wrapper */
+.almond-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+  filter: brightness(1.1);
+}
+
+.almond-bg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -4;
+  filter: brightness(0.95);
+}
+
+/* 첫 번째 오버레이 이미지 중앙 정렬 */
+.almond-overlay1 {
+  position: absolute;
+  top: 63%; /* 수직 중앙 정렬 */
+  left: 45%; /* 수평 중앙 정렬 */
+  transform: translate(-50%, -50%) scale(1.5);
+  object-fit: contain;
+  opacity: 0.82;
+  animation: sway 13s ease-in-out infinite; /* 흔들림 애니메이션 추가 */
+}
+
+/* 오버레이 이미지 2 */
+.almond-overlay2 {
+  position: absolute;
+  top: 15%; /* 조정 필요시 이 값 수정 */
+  left: 16%; /* 조정 필요시 이 값 수정 */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 1;
+  rotate: 45deg;
+  animation: sway 9.5s ease-in-out infinite; /* 약간 다른 시간으로 애니메이션 */
+}
+
+/* 오버레이 이미지 3 */
+.almond-overlay3 {
+  position: absolute;
+  top: 75%; /* 조정 필요시 이 값 수정 */
+  left: 90%; /* 조정 필요시 이 값 수정 */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  opacity: 1.5;
+  animation: sway 10s ease-in-out infinite; /* 약간 다른 시간으로 애니메이션 */
+}
+
+/* 나무 흔들림 애니메이션 */
+@keyframes sway {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg); /* 시작 위치 */
+  }
+  25% {
+    transform: translate(-48%, -52%) rotate(0.2deg); /* 살짝 오른쪽 위 */
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(0deg); /* 원래 위치 */
+  }
+  75% {
+    transform: translate(-52%, -48%) rotate(-0.1deg); /* 살짝 왼쪽 아래 */
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg); /* 원래 위치 */
+  }
+}
+
+.almond-overlay4 {
+  position: absolute;
+  top: 5%;
+  left: -18%;
+  height: auto;
+  object-fit: contain;
+  opacity: 1.5;
+  z-index: 2;
+  animation: sway2 5s ease-in-out infinite;
+  transform-origin: center; /* 회전 중심을 중앙으로 설정 */
+}
+
+/* 흔들림 애니메이션 수정 */
+@keyframes sway2 {
+  0% {
+    transform: rotate(15deg);
+  }
+  25% {
+    transform: rotate(16deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+  75% {
+    transform: rotate(14deg);
+  }
+  100% {
+    transform: rotate(15deg);
+  }
+}
+
+.falling-petal,
+.falling-petal-back,
+.falling-petal-far,
+.falling-petal-front {
+  position: absolute;
+  top: -10%;
+  object-fit: contain;
+  z-index: 3;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.falling-petal {
+  max-width: 50px;
+  max-height: 50px;
+  opacity: 0.8;
+  animation: fall 170s linear infinite; /* 천천히 */
+}
+
+.falling-petal-back {
+  max-width: 30px;
+  max-height: 30px;
+  opacity: 0.5;
+  animation: fall-back 185s linear infinite;
+}
+
+.falling-petal-far {
+  max-width: 40px;
+  max-height: 40px;
+  opacity: 0.3;
+  animation: fall-far 170s linear infinite;
+}
+
+.falling-petal-front {
+  max-width: 60px;
+  max-height: 60px;
+  opacity: 1;
+  animation: fall-front 180s linear infinite;
+}
+
+/* 앞쪽 꽃잎 애니메이션 */
+@keyframes fall {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 1;
+  }
+  25% {
+    transform: translateX(20px) translateY(20vh) rotate(15deg);
+  }
+  50% {
+    transform: translateX(-20px) translateY(50vh) rotate(30deg);
+  }
+  75% {
+    transform: translateX(15px) translateY(75vh) rotate(45deg);
+  }
+  100% {
+    transform: translateX(-15px) translateY(100vh) rotate(60deg);
+    opacity: 0;
+  }
+}
+
+/* 뒤쪽 꽃잎 애니메이션 */
+@keyframes fall-back {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 0.7;
+  }
+  25% {
+    transform: translateX(-15px) translateY(25vh) rotate(-10deg);
+  }
+  50% {
+    transform: translateX(15px) translateY(55vh) rotate(-20deg);
+  }
+  75% {
+    transform: translateX(-10px) translateY(80vh) rotate(-30deg);
+  }
+  100% {
+    transform: translateX(10px) translateY(105vh) rotate(-40deg);
+    opacity: 0;
+  }
+}
+
+/* 멀리 있는 꽃잎 애니메이션 */
+@keyframes fall-far {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 0.5;
+  }
+  25% {
+    transform: translateX(10px) translateY(30vh) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-10px) translateY(60vh) rotate(20deg);
+  }
+  75% {
+    transform: translateX(8px) translateY(90vh) rotate(30deg);
+  }
+  100% {
+    transform: translateX(-8px) translateY(115vh) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+/* 가장 앞쪽 꽃잎 애니메이션 */
+@keyframes fall-front {
+  0% {
+    transform: translateX(0) translateY(-10vh) rotate(0deg);
+    opacity: 0.9;
+  }
+  25% {
+    transform: translateX(25px) translateY(25vh) rotate(10deg);
+  }
+  50% {
+    transform: translateX(-25px) translateY(60vh) rotate(20deg);
+  }
+  75% {
+    transform: translateX(20px) translateY(90vh) rotate(30deg);
+  }
+  100% {
+    transform: translateX(-20px) translateY(115vh) rotate(40deg);
+    opacity: 0;
+  }
+}
+
+/* 클릭 시 피어나는 꽃 크기와 애니메이션 */
+.flower-animation {
+  width: 1px; /* 클릭 시 나타나는 꽃의 작은 크기 */
+  height: 1px; /* 고정된 작은 크기 */
+  opacity: 0;
+  position: absolute;
+  animation: bloom 1.5s ease forwards;
+  transform-origin: center center; /* 중앙 기준 */
+}
+
+@keyframes bloom {
+  0% {
+    transform: scale(0.01); /* 처음 더 작게 시작 */
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0.03); /* 중간에서 약간 커짐 */
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.05); /* 완전한 크기로 마무리 */
+    opacity: 1;
+  }
+}
+
+.sunflower-bg {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -4;
+}
+
+/* 오버레이 이미지들 wrapper */
+.sunflower-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -2;
+}
+
+/* Sun Flower 이미지 하단에 배치되는 오버레이 */
+.sunflower-overlay-bottom {
+  position: absolute;
+  bottom: 0;
+  left: 49%;
+  transform: translateX(-50%);
+  width: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.94;
+  filter: brightness(0.9);
+  animation: sway-top 8s ease-in-out infinite;
+}
+/* 하단 오버레이 흔들림 애니메이션 */
+@keyframes sway-bottom {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateX(-48%) rotate(0.5deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  75% {
+    transform: translateX(-52%) rotate(-0.5deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+/* Sun Flower 이미지 상단에 배치되는 오버레이 */
+.sunflower-overlay-top {
+  position: absolute;
+  top: 0%; /* 상단을 넘어서 잘리도록 위로 이동 */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  object-fit: cover;
+  z-index: 2;
+  opacity: 0.8;
+  filter: brightness(0.9);
+  animation: sway-top 6s ease-in-out infinite;
+}
+
+/* 상단 오버레이 흔들림 애니메이션 */
+@keyframes sway-top {
+  0% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  20% {
+    transform: translateX(-51%) rotate(0.3deg);
+  }
+  50% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  80% {
+    transform: translateX(-49%) rotate(-0.3deg);
+  }
+  100% {
+    transform: translateX(-50%) rotate(0deg);
+  }
+}
+
+/* 꽃병 애니메이션 */
+.sunflower-vase-overlay {
+  position: absolute;
+  top: 52%; /* 컨테이너의 수직 중앙 */
+  left: 22%; /* 오른쪽으로 약간 치우침 */
+  transform: translate(0, -50%) scale(0.5); /* 위치 및 크기 고정 */
+  width: auto;
+  max-width: none;
+  z-index: 3;
+  object-fit: contain;
+  animation: vase-combined 7s ease-in-out infinite;
+}
+
+/* hover 시 진동 효과 추가 */
+.sunflower-vase-overlay:hover {
+  animation: vase-combined 7s ease-in-out infinite,
+    shake 2s ease-in-out infinite;
+}
+
+/* 진동 효과 애니메이션 */
+@keyframes shake {
+  0%,
+  100% {
+    transform: translate(0, -50%) scale(0.5) rotate(0deg);
+  }
+  25% {
+    transform: translate(-2px, -50%) scale(0.5) rotate(-1deg);
+  }
+  50% {
+    transform: translate(2px, -50%) scale(0.5) rotate(1deg);
+  }
+  75% {
+    transform: translate(-1px, -50%) scale(0.5) rotate(0.5deg);
+  }
+}
+
+/* 꽃병의 흔들림 및 확대-축소 애니메이션 */
+@keyframes vase-combined {
+  0% {
+    transform: translate(0, -50%) scale(0.5) rotate(0deg); /* 원래 크기와 위치 */
+    opacity: 0.95;
+  }
+  25% {
+    transform: translate(1%, -51%) scale(0.52) rotate(0.3deg); /* 약간 확대, 오른쪽 회전 */
+    opacity: 1;
+  }
+  50% {
+    transform: translate(0, -50%) scale(0.5) rotate(0deg); /* 원래 크기와 위치 */
+    opacity: 0.95;
+  }
+  75% {
+    transform: translate(-1%, -49%) scale(0.52) rotate(-0.3deg); /* 약간 확대, 왼쪽 회전 */
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, -50%) scale(0.5) rotate(0deg); /* 원래 크기와 위치 */
+    opacity: 0.95;
+  }
+}
+
+.sunflower-vase-overlay2 {
+  position: absolute;
+  top: -20%; /* 더 위로 이동 */
+  right: 20%; /* 오른쪽으로 배치 */
+  transform: scale(0.43); /* 크기 고정 */
+  z-index: 5;
+  object-fit: contain;
+  animation: vase-sway-alt 5s ease-in-out infinite;
+}
+
+.sunflower-vase-overlay2:hover {
+  filter: brightness(1.1); /* 밝게 */
+}
+
+/* 크기와 위치는 고정하고, 흔들림과 회전만 적용한 애니메이션 */
+@keyframes vase-sway-alt {
+  0% {
+    transform: scale(0.43) rotate(0deg); /* 기본 위치에서 시작 */
+  }
+  25% {
+    transform: scale(0.45) rotate(-4deg); /* 약간 왼쪽으로 회전 */
+  }
+  50% {
+    transform: scale(0.43) rotate(0deg); /* 기본 위치로 돌아옴 */
+  }
+  75% {
+    transform: scale(0.45) rotate(2deg); /* 약간 오른쪽으로 회전 */
+  }
+  100% {
+    transform: scale(0.43) rotate(0deg); /* 기본 위치에서 종료 */
+  }
+}
+
+.a-sunflower-overlay1 {
+  position: absolute;
+  top: 55%;
+  right: 20%;
+  z-index: 3;
+  object-fit: contain;
+  width: 60%; /* 크기를 원하는 비율로 조정 */
+  transform-origin: center center; /* 회전 중심을 이미지 중앙으로 고정 */
+  animation: rotate-right1 20s linear infinite;
+}
+
+.a-sunflower-overlay1:hover {
+  animation: rotate-right1 7s linear infinite;
+}
+
+/* 오른쪽으로 360도 회전 애니메이션 */
+@keyframes rotate-right1 {
+  from {
+    transform: scale(0.7) rotate(0deg); /* 초기 크기와 회전 시작 각도 */
+  }
+  to {
+    transform: scale(0.7) rotate(360deg); /* 크기 유지하며 360도 회전 */
+  }
+}
+
+.a-sunflower-overlay2 {
+  position: absolute;
+  top: 3%;
+  right: 35%;
+  z-index: 3;
+  object-fit: contain;
+  width: 50%; /* 크기를 원하는 비율로 조정 */
+  transform-origin: center center; /* 회전 중심을 이미지 중앙으로 고정 */
+  filter: brightness(0.9);
+  animation: rotate-left 35s linear infinite,
+    sunlight-flicker 3s ease-in-out infinite alternate;
+}
+
+@keyframes sunlight-flicker {
+  0% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+/* 왼쪽으로 360도 회전 애니메이션 */
+@keyframes rotate-left {
+  from {
+    transform: scale(0.6) scaleX(-1) rotate(0deg); /* 초기 크기, 반전, 회전 시작 각도 */
+  }
+  to {
+    transform: scale(0.6) scaleX(-1) rotate(-360deg); /* 크기와 반전 유지하며 왼쪽으로 회전 */
+  }
+}
+
+.a-sunflower-overlay3 {
+  position: absolute;
+  top: -38%;
+  left: 30%;
+  transform: scale(0.4);
+  z-index: 3;
+  object-fit: contain;
+  animation: subtle-pulse 10s ease-in-out infinite;
+}
+
+/* hover 시 깜빡이는 효과 추가 */
+.a-sunflower-overlay3:hover {
+  animation: subtle-pulse 8s ease-in-out infinite,
+    blink 1s steps(2, end) infinite;
+  animation-delay: 0s; /* 즉시 시작 */
+}
+
+/* 깜빡이는 효과 애니메이션 */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes subtle-pulse {
+  0% {
+    transform: scale(0.4);
+  }
+  50% {
+    transform: scale(0.44);
+  }
+  100% {
+    transform: scale(0.4);
+  }
+}
+
+.a-sunflower-overlay4 {
+  position: absolute;
+  top: -29%;
+  left: 18%;
+  transform: scale(0.18);
+  z-index: 3;
+  object-fit: contain;
+  animation: rotate-right2 40s linear infinite;
+}
+
+.a-sunflower-overlay4:hover {
+  animation: rotate-right2 5s linear infinite;
+}
+
+@keyframes rotate-right2 {
+  from {
+    transform: scale(0.18) scaleX(1) rotate(0deg); /* 초기 크기, 반전, 회전 시작 각도 */
+  }
+  to {
+    transform: scale(0.18) scaleX(1) rotate(-360deg); /* 크기와 반전 유지하며 왼쪽으로 회전 */
+  }
+}
+
+.a-sunflower-overlay5 {
+  position: absolute;
+  top: 38%;
+  left: 50%;
+  z-index: 3;
+  object-fit: contain;
+  animation: rotate-right3 80s linear infinite;
+  transform-origin: center center; /* 중심으로 회전하도록 고정 */
+}
+
+/* 오른쪽으로 360도 회전 애니메이션, 초기 크기를 포함 */
+@keyframes rotate-right3 {
+  0% {
+    transform: scale(0.6) rotate(0deg); /* 초기 크기와 회전 각도 */
+  }
+  100% {
+    transform: scale(0.6) rotate(-360deg); /* 크기 유지하며 회전 완료 */
+  }
+}
+
+.a-sunflower-overlay5:hover {
+  transform: scale(1); /* 기본 크기에서 약간 확대 */
+  transition: transform 0.2s ease;
+  filter: brightness(1.2); /* 밝게 */
+}
+
+.a-sunflower-overlay6 {
+  position: absolute;
+  top: -10%;
+  left: -53%;
+  transform: scale(0.4);
+  z-index: 3;
+  object-fit: contain;
+  animation: rotate-left3 50s linear infinite;
+}
+
+.a-sunflower-overlay6:hover {
+  animation: shake2 4s ease-in-out infinite;
+}
+
+/* 진동 애니메이션 정의 */
+@keyframes shake2 {
+  0% {
+    transform: translate(0, 0) scale(0.4) rotate(0deg);
+  }
+  25% {
+    transform: translate(-2px, 1px) scale(0.4) rotate(-1deg);
+  }
+  50% {
+    transform: translate(2px, -1px) scale(0.4) rotate(1deg);
+  }
+  75% {
+    transform: translate(-2px, 1px) scale(0.4) rotate(-1deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(0.4) rotate(0deg);
+  }
+}
+
+/* 왼쪽으로 360도 회전 애니메이션 */
+@keyframes rotate-left3 {
+  from {
+    transform: scale(0.4) scaleX(-1) rotate(0deg); /* 초기 크기, 반전, 회전 시작 각도 */
+  }
+  to {
+    transform: scale(0.4) scaleX(-1) rotate(-360deg); /* 크기와 반전 유지하며 왼쪽으로 회전 */
+  }
+}
+
+.big-sunflower-overlay {
+  position: absolute;
+  top: -22%;
+  left: 58%;
+  opacity: 0.8;
+  transform: scale(1.5);
+  z-index: 2;
+  object-fit: contain;
+  animation: sunlight-flicker 12s ease-in-out infinite alternate,
+    rotate-left2 80s linear infinite;
+}
+
+@keyframes sunlight-flicker {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+/* 왼쪽으로 360도 회전 애니메이션 */
+@keyframes rotate-left2 {
+  from {
+    transform: scale(1.5) scaleX(-1) rotate(0deg); /* 초기 크기, 반전, 회전 시작 각도 */
+  }
+  to {
+    transform: scale(1.5) scaleX(-1) rotate(-360deg); /* 크기와 반전 유지하며 왼쪽으로 회전 */
+  }
+}
+
+.sunflowers-overlay {
+  position: absolute;
+  top: 7%;
+  left: -18%;
+  transform: scale(0.2);
+  z-index: 3;
+  object-fit: contain;
+  animation: rotate-right4 50s linear infinite;
+}
+
+@keyframes rotate-right4 {
+  0% {
+    transform: scale(0.2) rotate(0deg); /* 초기 크기와 회전 각도 */
+  }
+  100% {
+    transform: scale(0.2) rotate(-360deg); /* 크기 유지하며 회전 완료 */
+  }
+}
+
+/* hover 시 깜빡이는 효과 추가 */
+.sunflowers-overlay:hover {
+  animation: rotate-right4 50s linear infinite, blink 1s steps(2, end) infinite;
+  animation-delay: 0s; /* 즉시 시작 */
+}
+
+/* 깜빡이는 효과 애니메이션 */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
